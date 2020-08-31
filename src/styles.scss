@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap');
+
+$font-family: 'Heebo', 'Helvetica Neue', sans-serif;
+
+@import './assets/sass/global_config/colors';
+
+
+
+/*!
+ * Custom Theming for Angular Material
+ */ 
+// @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "assets/sass/material_source/_material_overrides";
+
+
+/*!
+ * Custom Theming for bootstrap 4.5
+ */
+// The bootstrap_overrides File has imports for all relevant parts + variables overrides
+// If there is a design that does not applies, open it here
+@import "assets/sass/bootstrap_source/bootstrap_overrides";
+
+
+
+/*
+* Global Styles
+**/
+@import 'assets/sass/globalShareFile'; // Global variables
+@import 'assets/sass/global_config/root_variables'; // Global resets and classes
+
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-size: 1em;
+  color: $text;
+  font-family: $font-family;
+  direction: inherit;
+  text-align: inherit;
+  line-height: inherit;
+
+  @include media-breakpoint-up(lg) {
+    ::-webkit-scrollbar {
+      width: rem(7);
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: rem(4);
+      background-color: #{$dark-slate-blue};
+
+      &:hover {
+        background-color: lighten( $dark-slate-blue, 6%);
+      }
+    }
+    ::-webkit-scrollbar-track {
+      border-radius: rem(4);
+      background-color: transparent;
+
+      &:hover {
+        background-color: rgba($ice-blue, 0.45);
+      }
+    }
+
+    /* Buttons */
+    ::-webkit-scrollbar-button:single-button {
+
+      // background-color: lighten($dark-slate-blue, 20%);
+      background-color: transparent;
+      width:  7px;
+      height: 7px;
+      border-radius: 40%;
+    }
+  }
+}
+
+[class*="mat-"] {
+  font-family: inherit;
+}
+
+
+svg {
+  width:  1em;
+  height: 1em;
+  font-size: inherit;
+  overflow: visible;
+  fill: currentColor;
+
+  [stroke-width]:not([stroke*="#"]):not([stroke="none"]) {
+    stroke: currentColor;
+  }
+}
+
+
+
+
+/* 
+* GLOBAL PARTIALS
+**/
+

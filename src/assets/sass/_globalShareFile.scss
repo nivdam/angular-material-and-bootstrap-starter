@@ -1,0 +1,10 @@
+@import 'global_config/colors';
+@import 'global_config/mixins';
+@import 'global_config/variables';
+@import '~node_modules/bootstrap/scss/mixins/breakpoints';
+@import 'bootstrap_source/breakpoints_overrides';
+
+
+// Breakpoint viewport Desktop and Mobile media queries.
+@mixin desktop-view { @include media-breakpoint-up(md) { @content; }  }
+@mixin mobile-view  { @include media-breakpoint-down(sm) { @content; } }

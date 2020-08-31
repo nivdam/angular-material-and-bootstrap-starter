@@ -1,0 +1,96 @@
+/*
+ * VARIABLES
+**/
+
+$assetsFolder: '~src/assets';
+
+
+// Psodtion For @extend propertis
+$sps-0: 0;
+$sps-1: rem(10);
+$sps-2: rem(16);
+$sps-3: rem(24);
+$sps-4: rem(32);
+$sps-5: rem(40);
+
+
+
+
+// font size
+$fontSize: (
+  60,
+  48,
+  36,
+  34,
+  30,
+  24,
+  20,
+  18,
+  16,
+  14,
+  13,
+);
+
+@each $text_size in $fontSize {
+  %text-#{$text_size} {
+    font-size: rem(#{$text_size});
+  }
+}
+
+%text-inherit { font-size: inherit; }
+
+
+// font
+%fnt-light { font-weight: 300; }
+%fnt-normal { font-weight: 400 }
+%fnt-SemiBold { font-weight: 500; }
+%fnt-bold { font-weight: 700; }
+%fnt-exteaBold { font-weight: 900; }
+
+.cv {
+  color: currentColor;
+}
+
+
+
+// font color
+$fontColor: (
+  'text': $text,
+  'white': $white,
+  'black': $black,
+);
+
+@each $name, $color in $fontColor {
+  %fnt-#{$name} {
+    color: $color;
+  }
+}
+
+
+
+// bgs
+$bgColor: (
+  'white': $white,
+  'transparent': transparent
+);
+
+@each $name, $color in $bgColor {
+  %bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+
+
+/**
+* Responsive breakpoints
+*/
+// xs: 575px; 
+// sm: 576px; // down -  767  
+// md: 768px; // down -  991
+// lg: 992px; // down -  1199
+// xl: 1200px;
+
+
+// @include desktop-view {}
+// @include mobile-view {}

@@ -1,0 +1,91 @@
+/**
+* MIXINS
+*/
+@function rem($px) {
+  @return calc((#{$px}rem / 16));
+}
+
+
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+
+  @if $fallback {
+    font-size: $fallback;
+  }
+
+  font-size: $responsive;
+}
+
+/*.no-limits {
+  font-size: 3vw;
+}
+
+.limit-min {
+  @include responsive-font(3vw, 20px);
+}
+
+.limit-min-max {
+  @include responsive-font(3vw, 20px, 50px);
+}*/
+
+
+
+/* ie11 only*/
+@mixin ie11 {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+
+/* LTR direction */
+@mixin ltr {
+  @at-root ::ng-deep html[dir="ltr"] & {
+    @content;
+  }
+}
+
+
+/* Root selector */
+@mixin root {
+  @at-root ::ng-deep {
+    @content;
+  }
+}
+
+@mixin flex-container-wrap-items($flex-basis, $max-expected-width: 2000px) {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    max-width: 100%;
+    flex-grow: 1;
+    flex-basis: $flex-basis;
+  }
+
+  $multiplier: 1;
+  $current-width: 0px;
+
+  @while $current-width < $max-expected-width {
+    $current-width: $current-width + $flex-basis;
+    $multiplier: $multiplier + 1;
+
+    &[min-width~="#{$flex-basis * $multiplier}"] > * {
+      max-width: percentage(1/$multiplier);
+    }
+  }
+}

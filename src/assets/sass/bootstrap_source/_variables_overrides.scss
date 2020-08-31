@@ -1,0 +1,75 @@
+ /*!
+  * Theme Name: IAA
+  * Author: Niv Daminovich
+  * Version: 1.6
+  * Organization: Matrix
+  * Copyright 2019 The Matrix Authors
+  */
+
+
+// Variables
+//
+@import "../global_config/colors";
+// Color system
+
+$primary:       $darkish-blue;
+$secondary:     $orange-2;
+$gray:          $gray-600;
+$success:       $green;
+$info:          $cyan;
+$warning:       $orange;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-800;
+
+$theme-colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "gray":       $gray,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "slate_blue":  $dark-slate-blue,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
+
+
+
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:       theme-color("slate_blue");
+$link-hover-color: darken($link-color, 15%);
+
+
+
+
+// Grid breakpoints
+@import './breakpoints_overrides';
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-gutter-width:           20px;
+
+// Buttons + Forms
+$input-btn-font-size: inherit;
+
+
+$btn-border-radius: 0;
+
+
+
+$box-shadow: 0 0 2.0625rem 0.75rem rgba($black, 0.06); // 0 0 33px 12px
+$box-shadow-sm: 0 0 0.625rem 0.3125rem rgba($black, 0.06); // 0 0 10px 5px

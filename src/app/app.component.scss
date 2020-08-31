@@ -1,0 +1,15 @@
+@import '~src/assets/sass/globalShareFile'; // Global variables
+
+
+:host {
+  position: relative;
+  display: block;
+  width: 100%;  
+
+  @include mobile-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+  }
+}
+
